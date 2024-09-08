@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Keyboard</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="triggerKeyboard()">Tap to Trigger Keyboard</button>
+
+    <script>
+        function triggerKeyboard() {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.style.position = 'absolute';
+            input.style.opacity = 0;
+            document.body.appendChild(input);
+            input.focus();
+            input.addEventListener('blur', function() {
+                document.body.removeChild(input);
+            });
+        }
+    </script>
+</body>
+</html>
